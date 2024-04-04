@@ -1,0 +1,77 @@
+﻿@* @model Community_Finder2.ViewModels.SearchResultsViewModel
+
+@if (Model.TargetCommunity != null)
+{
+    <h3>Nearest Communities to @Model.TargetCommunity.Name</h3>
+    @if (ViewBag.NearestCommunities != null && Model.NearestCommunities.Any())
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Location</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var community in Model.NearestCommunities)
+                {
+                    <tr>
+                        <td>@community.Name</td>
+                        <td>@community.Location.Name</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No nearest communities found.</p>
+    }
+}
+else
+{
+    <p>No community found with the provided name.</p>
+}
+ *@
+
+
+@model SearchResultsViewModel
+
+<h2>Search Results</h2>
+
+<h3>Target Community</h3>
+@if (Model.TargetCommunity != null)
+{
+    <p>Name: @Model.TargetCommunity.Name</p>
+    <p>Location: @Model.TargetCommunity.Location.Name</p>
+}
+else
+{
+    <p>No target community found.</p>
+}
+
+<h3>Nearest Communities</h3>
+@if (Model.NearestCommunities.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Location</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var community in Model.NearestCommunities)
+            {
+                <tr>
+                    <td>@community.Name</td>
+                    <td>@community.Location.Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No nearest communities found within 20km.</p>
+}

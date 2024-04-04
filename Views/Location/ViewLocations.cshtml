@@ -1,0 +1,23 @@
+﻿@model List<Location>
+
+<h2>View Locations</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var location in Model)
+        {
+            <tr>
+                <td>@location.Name</td>
+                <td>@location.Latitude</td>
+                <td>@location.Longitude</td>
+            </tr>
+        }
+    </tbody>
+</table>

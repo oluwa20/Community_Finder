@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Community_Finder2.props" />
+</Project>

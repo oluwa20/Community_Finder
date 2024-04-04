@@ -1,0 +1,105 @@
+﻿@* @model List<Community_Finder2.Models.Community>
+
+<h2>Search Communities</h2>
+
+<form asp-action="SearchCommunities">
+    <div class="form-group">
+        <input type="text" name="searchTerm" class="form-control" placeholder="Search Communities">
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+@if (Model.Any())
+{
+    @if (ViewBag.NearestCommunities != null && ((List<Community_Finder2.Models.Community>)ViewBag.NearestCommunities).Any())
+    {
+        <h3>Nearest Communities</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Location</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var community in (List<Community_Finder2.Models.Community>)ViewBag.NearestCommunities)
+                {
+                    <tr>
+                        <td>@community.Name</td>
+                        <td>@community.Location.Name</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+    <h3>All Communities</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Location</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var community in Model)
+            {
+                <tr>
+                    <td>@community.Name</td>
+                    <td>@community.Location.Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No communities found.</p>
+}
+ *@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@model SearchResultsViewModel
+
+<h2>Search Communities</h2>
+
+<form asp-action="SearchCommunities" method="post">
+    <div class="form-group">
+        <label for="searchTerm">Search for a community:</label>
+        <input type="text" id="searchTerm" name="searchTerm" class="form-control" value="@Model.SearchTerm" placeholder="Enter community name">
+        <span asp-validation-for="SearchTerm" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

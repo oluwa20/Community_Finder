@@ -1,0 +1,36 @@
+﻿@* @model Community_Finder2.Models.Community
+
+<h2>Create Community</h2>
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="LocationId"></label>
+        <select asp-for="LocationId" class="form-control" asp-items="@ViewBag.Locations"></select>
+        <span asp-validation-for="LocationId" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+ *@
+
+@model Community_Finder2.Models.Community
+
+<h2>Create Community</h2>
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="LocationId"></label>
+        <select asp-for="LocationId" class="form-control" asp-items="@ViewBag.Locations"></select>
+        <span asp-validation-for="LocationId" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

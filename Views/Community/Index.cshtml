@@ -1,0 +1,55 @@
+﻿@* @model List<Community_Finder2.Models.Community>
+
+<h2>Communities</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Location</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var community in Model)
+        {
+            <tr>
+                <td>@community.Name</td>
+                <td>@community.Location.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>
+ *@
+
+@model IEnumerable<Community_Finder2.Models.Community>
+
+
+
+<form asp-controller="Community" asp-action="SearchCommunities" method="post">
+    <div class="input-group mb-3">
+        <input type="text" name="searchTerm" class="form-control" placeholder="Search for a community">
+        <div class="input-group-append">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </div>
+</form>
+
+<h2>Communities</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Location</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var community in Model)
+        {
+            <tr>
+                <td>@community.Name</td>
+                <td>@community.Location.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>
